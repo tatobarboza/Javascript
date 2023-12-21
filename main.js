@@ -1,37 +1,34 @@
-
 alert("Bienvenido al calculador de cuotas")
+let resultado = 0 
 
-let suma = (numero1, numero2) => numero1 + numero2;
-let multiplicacion = (numero1, numero2) => numero1 * numero2;
+function multiplicacion(numero1, numero2) {
+    return numero1 * numero2;
+}
 
-let PP = Number(prompt("Ingrese el precio del producto"));
-let cuotas = Number(prompt("Ingrese el numero de cuotas"));
-let porcentaje = parseFloat("0,05");
+let porcentaje = (1.05)
 
-let cuota1 = suma(multiplicacion(PP, porcentaje), PP);
-let cuota2 = suma(multiplicacion(cuota1, porcentaje), PP);
-let cuota3 = suma(multiplicacion(cuota2, porcentaje), PP);
-let cuota6 = suma(multiplicacion(cuota3, porcentaje), PP);
-let cuota12 = suma(multiplicacion(cuota6, porcentaje), PP);
-
-let operacion = (cuotas) => {
+let operacion = (PP, porcentaje, cuotas) => {
     switch (cuotas) {
         case "1":
-            return `${cuota1}`;
+            return (multiplicacion(PP,porcentaje))
         case "2":
-            return `${cuota2}`;
+            return (PP * porcentaje) * porcentaje;
         case "3":
-            return `${cuota3}`;
+            return ((PP * porcentaje) * porcentaje) * porcentaje;
         case "6":
-            return `${cuota6}`;
+            return (((PP * porcentaje) * porcentaje) * porcentaje) *  porcentaje;
         case "12":
-            return `${cuota12}`;
+            return ((((PP * porcentaje) * porcentaje) * porcentaje) *  porcentaje) * porcentaje;
         default:
             return `El numero ${cuotas} no está disponible, Ingrese otro número.`;
     }
 }
-let resultado = operacion(cuotas);
-mostrarCuotas += `
+
+let PP = Number(prompt("Ingrese el precio del producto"));
+let cuotas = prompt("Ingrese el numero de cuotas");
+
+resultado = operacion(PP, porcentaje, cuotas);
+mostrarCuotas = `  
 Para el precio ${PP} en ${cuotas} cuotas(s)
 El precio final a pagar es ${resultado}`
 alert(mostrarCuotas);
