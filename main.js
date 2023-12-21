@@ -1,9 +1,7 @@
 alert("Bienvenido al calculador de cuotas")
 let resultado = 0 
 
-function multiplicacion(numero1, numero2) {
-    return numero1 * numero2;
-}
+const multiplicacion = (x, y) => x * y;
 
 let porcentaje = (1.05)
 
